@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import NoteForm from "./components/NoteForm/NoteForm";
+import NotesList from "./components/NotesList/NotesList";
+import Grid from "@mui/material/Grid";
+import { Box, Container } from "@mui/material";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    return (
+        <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            flexDirection={'column'}
+            marginTop={5}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+            <Grid container item xs={8} direction={'column'}>
+                <Grid xs={12} item>
+                    <NoteForm maxCharacters={180}/>
+                </Grid>
+            </Grid>
+            <Grid container item xs={8} direction={'column'}>
+                <Grid item xs={12}>
+                    <NotesList/>
+                </Grid>
+            </Grid>
+        </Box>
+    );
 }
 
 export default App;
